@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsha Sound | Legacy Since 1900</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00d4ff;
+            --dark-blue: #0055ff;
+            --bg-black: #020202;
+            --card-bg: #0d1117;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Mukta', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-black); color: #fff; line-height: 1.8; overflow-x: hidden; }
+
+        /* --- Header --- */
+        header {
+            background: rgba(0, 0, 0, 0.95); padding: 25px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--neon-blue);
+            backdrop-filter: blur(15px);
+        }
+        .logo-box { font-family: 'Orbitron', sans-serif; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--neon-blue); text-shadow: 0 0 15px var(--dark-blue); }
+        .since { font-size: 0.75rem; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
+        
+        nav a { color: #fff; text-decoration: none; margin-left: 30px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh; width: 100%; text-align: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center; border-bottom: 2px solid var(--dark-blue);
+        }
+        .hero h1 { font-family: 'Mukta', sans-serif; font-size: clamp(3rem, 10vw, 6rem); color: var(--neon-blue); line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.5rem; color: #eee; max-width: 900px; padding: 0 20px; }
+
+        /* --- Hindi Quotes --- */
+        .hindi-quotes { padding: 80px 10%; text-align: center; background: #000; }
+        .quote-box h2 { font-family: 'Mukta'; font-size: 2.8rem; color: #fff; margin-bottom: 10px; }
+        .quote-box p { font-size: 1.3rem; color: var(--neon-blue); font-style: italic; }
+
+        /* --- Equipment Grid --- */
+        .section-title { text-align: center; padding: 60px 0 20px; font-family: 'Orbitron'; font-size: 2.5rem; color: var(--neon-blue); text-transform: uppercase; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 8%; }
+        .card { background: var(--card-bg); border-radius: 25px; overflow: hidden; border: 1px solid #222; transition: 0.5s; text-align: center; }
+        .card:hover { border-color: var(--neon-blue); transform: translateY(-10px); }
+        .card img { width: 100%; height: 300px; object-fit: cover; opacity: 0.7; }
+        .card-content { padding: 30px; }
+        .card-content h3 { color: var(--neon-blue); font-family: 'Mukta'; font-size: 1.8rem; margin-bottom: 10px; }
+
+        /* --- Balanced Booking Form --- */
+        .booking-section { padding: 100px 5%; background: linear-gradient(180deg, #020202 0%, #001a33 100%); }
+        .booking-card {
+            max-width: 1000px; margin: 0 auto; background: rgba(10, 12, 16, 0.9);
+            padding: 60px 40px; border-radius: 40px; border: 2px solid var(--dark-blue);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.1);
+        }
+        .booking-card h2 { font-family: 'Mukta'; text-align: center; color: #fff; margin-bottom: 40px; font-size: 3rem; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        label { color: var(--neon-blue); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        
+        input, select, textarea {
+            background: #000; border: 1px solid #333; color: #fff;
+            padding: 18px; border-radius: 15px; font-size: 1.1rem; outline: none; width: 100%; transition: 0.4s;
+        }
+        input:focus, select:focus { border-color: var(--neon-blue); }
+
+        .full-width { grid-column: span 2; }
+        #otherInputWrapper { display: none; margin-top: 15px; }
+
+        .wa-btn {
+            grid-column: span 2; background: linear-gradient(45deg, #00d4ff, #0055ff); color: #fff;
+            padding: 25px; border-radius: 20px; text-decoration: none;
+            text-align: center; font-weight: 900; font-size: 1.5rem; text-transform: uppercase;
+            margin-top: 30px; transition: 0.5s; display: block;
+        }
+        .wa-btn:hover { transform: scale(1.02); box-shadow: 0 0 40px rgba(0, 212, 255, 0.4); }
+
+        /* --- Footer --- */
+        footer { padding: 80px 10%; background: #000; text-align: center; border-top: 1px solid #111; }
+        .footer-logo { font-family: 'Orbitron'; font-size: 2rem; color: var(--neon-blue); margin-bottom: 20px; }
+        .footer-contact { color: #888; font-size: 1.2rem; margin-bottom: 30px; }
+
+        /* Responsive Balance */
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width, .wa-btn { grid-column: span 1; }
+            .booking-card { padding: 40px 20px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-box">
+        <div class="logo">VARSHA SOUND</div>
+        <span class="since">Established 1900 | Legacy</span>
+    </div>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#gallery">SETUP</a>
+        <a href="#book">RESERVE</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Sacha Sur, <span style="color: var(--neon-blue);">Sacchi Bhakti</span></h1>
+    <p>126 varshon se Ghaziabad ki shaan. Hamari awaaz bhakton ko bhagwan se jodti hai.</p>
+</section>
+
+<section class="hindi-quotes">
+    <div class="quote-box">
+        <h2>"Virasat aur Vishwas"</h2>
+        <p>1900 se aapki sewa mein nirantar jaari.</p>
+    </div>
+</section>
+
+<section class="section-title" id="gallery">Professional Setup</section>
+<div class="grid-container">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?auto=format&fit=crop&w=800&q=80" alt="Sound">
+        <div class="card-content">
+            <h3>Spasht Awaaz</h3>
+            <p>Bhajan aur Katha ke liye crystal clear audio setup.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Mic">
+        <div class="card-content">
+            <h3>Digital Mic</h3>
+            <p>Gayakon ke liye behtareen vocal performance.</p>
+        </div>
+    </div>
+</div>
+
+<section class="booking-section" id="book">
+    <div class="booking-card">
+        <h2>प्रोग्राम की जानकारी भरें</h2>
+        <form id="bookingForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Aapka Full Name</label>
+                    <input type="text" id="name" placeholder="Pura naam likhein" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Program ka Prakar</label>
+                    <select id="event" onchange="checkOther()">
+                        <option value="Shyam Baba Kirtan">Shyam Baba Kirtan</option>
+                        <option value="Sunderkand Path">Sunderkand Path</option>
+                        <option value="Mata Ki Chowki">Mata Ki Chowki</option>
+                        <option value="Bhagwat Katha">Bhagwat Katha</option>
+                        <option value="Other">Kuch Aur...</option>
+                    </select>
+                    <div id="otherInputWrapper">
+                        <input type="text" id="customEvent" placeholder="Likh kar batayein...">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Event ki Tarik</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Speakers/Bheed</label>
+                    <input type="text" id="speakers" placeholder="Eg: 4 Speakers">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Pura Address (Ghaziabad Area)</label>
+                    <textarea id="address" rows="3" placeholder="Program kahan hona hai..."></textarea>
+                </div>
+
+                <a href="#" onclick="sendWA()" id="waBtn" class="wa-btn">WHATSAPP PAR BHEJEIN</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">VARSHA SOUND SERVICE</div>
+    <div class="footer-contact">
+        <p>WhatsApp: 8929256066 | Call: 9871727868</p>
+        <p>Email: shinearpit6066@gmail.com</p>
+        <p>Location: Ghaziabad, Uttar Pradesh</p>
+    </div>
+    <p style="color: #444; font-size: 0.9rem;">&copy; 2026 Varsha Sound | 126 Saal Ka Vishwas</p>
+</footer>
+
+<script>
+    function checkOther() {
+        const val = document.getElementById('event').value;
+        document.getElementById('otherInputWrapper').style.display = (val === 'Other') ? 'block' : 'none';
+    }
+
+    function sendWA() {
+        const n = document.getElementById('name').value;
+        let e = document.getElementById('event').value;
+        if(e === 'Other') e = document.getElementById('customEvent').value || "Special Program";
+        const d = document.getElementById('date').value;
+        const sp = document.getElementById('speakers').value || "Jarurat ke anusar";
+        const ad = document.getElementById('address').value || "Not Mentioned";
+
+        if(!n || !d) { alert("Naam aur Date bharna zaroori hai!"); return; }
+
+        const msg = `Namaste Arpit Bhai,%0A%0A*V.S.S. Booking Detail*%0A*Naam:* ${n}%0A*Program:* ${e}%0A*Tarik:* ${d}%0A*Setup:* ${sp}%0A*Address:* ${ad}`;
+        // WhatsApp number 8929256066 set here
+        window.open(`https://wa.me/918929256066?text=${msg}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
+
